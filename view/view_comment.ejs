@@ -1,0 +1,81 @@
+<%- include('header') %>
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive table--no-card m-b-30">
+                            <!-- <form class="form-header py-3" >
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form> -->
+                            <form action="">
+                                <div class="d-flex my-3">
+                                    <input class="form-control" name="search" type="text" placeholder="Search..">
+                                    <input type="submit" value="search" name="searching" class="mx-2">
+                                </div>
+                            </form>
+                            <form method="post" action="/comment/mulDel">
+                            <table class="table table-borderless table-striped table-earning first text-left ">
+                                <thead>
+                                    <tr>
+                                        <th>no <input type="checkbox" name="mulDel" id="muldel"></th>
+                                        <th>name</th>
+                                        <th>email</th>
+                                        <th>Image</th>
+                                        <th>comment</th>
+                                        <th>status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                
+                                        <% for(var dt of commentdata){ %>
+                                            
+                                            <tr>
+                                                
+                                                <td><input type="checkbox" name="mulDel[]" class="singleDelet" value="<%= dt.id %>"></td>
+                                                <td>
+                                                    <%=dt.name%>
+                                                </td>
+                                                <td>
+                                                    <%=dt.email%>
+                                                </td>
+                                                
+                                                <td><img src="<%=dt.image%>" height="50" width="50"></td>
+                                                <td>
+                                                    <%=dt.comment %>
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <a href="/comment/delet/<%= dt.id %>"><i
+                                                            class="fa-solid fa-trash "
+                                                            style="font-size: 20px; margin-right: 8px;"></i></a>
+                                                    <a href="/comment/edit_page/<%= dt.id %>"><i
+                                                            class="fa-solid fa-pen-to-square"
+                                                            style="font-size: 20px; margin-right: 8px;"></i></a>    
+                                                   
+                                                    </td>
+                                                </tr>
+                                                <% } %>
+
+                                </tbody>
+                                
+                                <tfoot>
+                                   
+                                   
+                                </tfoot>
+                                
+                                
+                                  
+                            </table>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('footer') %>
